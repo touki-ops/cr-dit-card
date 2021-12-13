@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>MR.Card</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
+</head>
+<body>
+
+	<header>
+		<ul id="logo"><img src="favicon.ico"><p>MR.Card</p></ul>
+		<div>
+			<ul>
+			<li>Features</li>
+			<li>about us</li>
+			<li>plan</li>
+			<li>help</li>
+			<li>condition</li>
+		</ul>
+		<ul><li>our podcast</li></ul>
+		<ul><li>create account</li></ul>
+	</div>
+	</header>
+
+	<section id="budgets">
+		<h2>budgets</h2>
+		<li><img src="cible verte.PNG"><p>Travel<br>
+			<span>$543 left</span></p></li>
+		<li><img src="cible orange.PNG"><p>Via palmas<br>
+			<span>$640 left</span></p></li>
+		<li><img src="cible violette.PNG"><p>Macarena<br>
+			<span>$50 left</span></p></li>
+	</section>
+
+	<section>
+		<h1>Get More<br>
+		From Your Budget</h1>
+		<a href="#">Save now</a>
+	</section>
+
+	<section id="widget">
+		<article>
+				<div id="inputs"><input type="email" placeholder="Your Email">
+				<input type="button" value="JOIN THE WAITLIST"></div>
+
+				<div id="customers">
+				<p>5.675+<br>
+					<span>Happy customers</span></p>
+					<p>11.875+<br>
+					<span>Cards issue</span></p>
+				</div>
+
+				<div id="ligne">
+					<img src="trait.png">
+				</div>
+		</article>
+
+		<article id="list">
+			<img src="list.png">
+			<button id="buy">Buy plan</button>
+		</article>
+
+		<article id="graphique">
+			<div>
+				<h3>CARDS</h3><img src="points.png">
+			</div>
+			
+			<h3>Total Balance</h3>
+			<img src="graphique.png">
+
+		</article>
+	</section>
+
+	<section id="tableau_de_bord">
+		<p>scroll: <strong id="result"></strong></p>
+	</section>
+
+	<script type="text/javascript">
+		const result = document.querySelector('#result');
+		const header = document.querySelector('header');
+
+		window.addEventListener('scroll', event => {
+			let y = window.scrollY;
+			let x = window.scrollX;
+
+			y = Math.round(y);
+			x = Math.round(x);
+
+			result.innerText = y;
+
+			if (y < 20) {
+				header.style.opacity = '1';
+				header.style.transform = 'scale(1)';
+			} if (y > 20) {
+				header.style.opacity = '0';
+				header.style.transform = 'scale(0)';
+			}
+		})
+	</script>
+
+</body>
+</html>
