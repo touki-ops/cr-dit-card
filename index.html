@@ -9,19 +9,18 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.2/chart.min.js"></script>
 </head>
 <body>
-
 	<header>
 		<ul id="logo"><img src="favicon.ico"><p>MR.Card</p></ul>
 		<div>
 			<ul>
-			<li>Features</li>
-			<li>about us</li>
-			<li>plan</li>
-			<li>help</li>
-			<li>condition</li>
+			<li id="li_1">Features</li>
+			<li id="li_2">about us</li>
+			<li id="li_3">plan</li>
+			<li id="li_4">help</li>
+			<li id="li_5">condition</li>
 		</ul>
-		<ul><li>our podcast</li></ul>
-		<ul><li>create account</li></ul>
+		<ul><li id="li_6">our podcast</li></ul>
+		<ul><li id="li_7">create account</li></ul>
 	</div>
 	</header>
 
@@ -36,10 +35,12 @@
 	</section>
 
 	<section>
-		<h1>Get More<br>
-		From Your Budget</h1>
-		<a href="#">Save now</a>
+		<h1><span id="get_more">Get More</span><br>
+		<span id="your_budget">From Your Budget</span></h1>
+		<a href="#" class="btn">Save now</a>
 	</section>
+
+	<img id="carte" src="carte.png">
 
 	<section id="widget">
 		<article>
@@ -70,17 +71,23 @@
 			
 			<h3>Total Balance</h3>
 			<img src="graphique.png">
-
 		</article>
 	</section>
 
 	<section id="tableau_de_bord">
-		<p>scroll: <strong id="result"></strong></p>
+		<p>scroll: <strong id="scroll"></strong></p>
+		<p>souris: <strong id="positionSouris"></strong></p>
 	</section>
 
+	<div id="souris"></div>
+
 	<script type="text/javascript">
-		const result = document.querySelector('#result');
-		const header = document.querySelector('header');
+		const scroll = document.querySelector('#scroll')
+		const header = document.querySelector('header')
+		const articles = document.querySelector('#widget')
+		const souris = document.querySelector('#souris')
+		const positionSouris = document.querySelector('#positionSouris')
+		const carte = document.querySelector('#carte')
 
 		window.addEventListener('scroll', event => {
 			let y = window.scrollY;
@@ -89,16 +96,52 @@
 			y = Math.round(y);
 			x = Math.round(x);
 
-			result.innerText = y;
+			scroll.innerText = y;
 
 			if (y < 20) {
 				header.style.opacity = '1';
 				header.style.transform = 'scale(1)';
-			} if (y > 20) {
+			} else if (y > 20) {
 				header.style.opacity = '0';
 				header.style.transform = 'scale(0)';
 			}
+
+			carte.style.top = y + 50 + 'px';
+		}) 
+
+		window.addEventListener('mousemove', event => {
+			let Y = event.screenY
+			let X = event.screenX
+
+			positionSouris.innerText = X + ',' + Y;
 		})
+
+		const li_1 = document.querySelector('#li_1')
+		const li_2 = document.querySelector('#li_2')
+		const li_3 = document.querySelector('#li_3')
+		const li_4 = document.querySelector('#li_4')
+		const li_5 = document.querySelector('#li_5')
+		const li_6 = document.querySelector('#li_6')
+		const li_7 = document.querySelector('#li_7')
+
+		const get_more = document.querySelector('#get_more')
+		const your_budget = document.querySelector('#your_budget')
+
+		const widget = document.querySelector('#widget')
+
+		li_1.addEventListener('animationend', () => {li_1.style.opacity = '1';})
+		li_2.addEventListener('animationend', () => {li_2.style.opacity = '1';})
+		li_3.addEventListener('animationend', () => {li_3.style.opacity = '1';})
+		li_4.addEventListener('animationend', () => {li_4.style.opacity = '1';})
+		li_5.addEventListener('animationend', () => {li_5.style.opacity = '1';})
+		li_6.addEventListener('animationend', () => {li_6.style.opacity = '1';})
+		li_7.addEventListener('animationend', () => {li_7.style.opacity = '1';})
+
+		get_more.addEventListener('animationend', () => {get_more.style.opacity = '1';})
+		your_budget.addEventListener('animationend', () => {your_budget.style.opacity = '1';})
+
+		widget.addEventListener('animationend', () => {widget.style.opacity = '1';})
+		
 	</script>
 
 </body>
